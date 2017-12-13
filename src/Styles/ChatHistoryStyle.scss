@@ -1,0 +1,46 @@
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  ul li{
+    display:inline-block;
+    clear: both;
+    padding: 20px;
+    border-radius: 30px;
+    margin-bottom: 10px;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+  
+  .client{
+    background: #eee;
+    float: left;
+  }
+  
+  .rba{
+    float: right;
+    background: #0084ff;
+    color: #fff;
+ 
+  }
+  
+  .client + .rba{
+    border-bottom-right-radius: 5px;
+  }
+  
+  .rba + .rba{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+  .rba:last-of-type {
+    border-bottom-right-radius: 30px;
+  }
+
+  .message:hover{
+    cursor: pointer;
+  }
+
+
+
