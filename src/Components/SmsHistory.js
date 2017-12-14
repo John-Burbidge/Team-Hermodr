@@ -24,8 +24,11 @@ export default class SmsHistory extends Component {
         setInterval(function(){ 
             const lastMsg = smsHistoryStore.sortedMessages[smsHistoryStore.sortedMessages.length -1];
             that.getMessages(lastMsg.name);
-
+          
         }, 3 * 1000 ); 
+       
+ 
+  
      
     }
     getMessages(name){
@@ -35,6 +38,7 @@ export default class SmsHistory extends Component {
             'HackathonCtrl.getMsgs', name,
             function (result, event) {
                 smsHistoryStore.createMessages(result);
+                
             }
         );
         
@@ -63,7 +67,7 @@ export default class SmsHistory extends Component {
                             });
                            const date = moment(msg.date).format('MMM Do YYYY, h:mm:ss a');
                            return <li key={"sms-msg-" + i} className={msgStyling} data-balloon-pos={direction} data-balloon={date}>
-                                     { msg.mediaUrl !== undefined && msg.mediaUrl.length > 0 ? <a href={msg.mediaUrl} target="_blank"> <img className="received-imgs" src={msg.mediaUrl} /></a> : msg.message}
+                                     { msg.mediaUrl !== undefined && msg.mediaUrl.length > 0 ? <img className="received-imgs" onClick={() => smsHistoryStore.onClickOfImgUrl(msg.mediaUrl)} src={msg.mediaUrl} /> : msg.message}
                                   </li>    
                         })
                     }
