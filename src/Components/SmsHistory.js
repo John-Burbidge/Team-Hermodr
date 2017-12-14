@@ -8,7 +8,7 @@ var classNames = require('classnames');
 import balloon from '../../node_modules/balloon-css/src/balloon.scss';
 import moment from 'moment';
 import fontAwesome from '../../node_modules/font-awesome/css/font-awesome.css';
-
+const queryString = require('query-string');
 
 @withRouter
 @inject('routingStore', 'smsHistoryStore')
@@ -25,16 +25,17 @@ export default class SmsHistory extends Component {
             const lastMsg = smsHistoryStore.sortedMessages[smsHistoryStore.sortedMessages.length -1];
             that.getMessages(lastMsg.name);
           
-        }, 5 * 1000 ); 
+        }, 2 * 1000 ); 
        
   
      
     }
     getMessages(name){
+		const parsedQuery = queryString.parse(location.href);
         const props = this.props;
         const smsHistoryStore = props.smsHistoryStore;
         Visualforce.remoting.Manager.invokeAction(
-            'HackathonCtrl.getMsgs', name,
+            'HackathonCtrl.getMsgs', name, parsedQuery.id,
             function (result, event) {
                 smsHistoryStore.createMessages(result);
                 
