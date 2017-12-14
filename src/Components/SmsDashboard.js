@@ -15,7 +15,6 @@ export default class HomeComponent extends Component {
     }
     render() {
         const parsedQuery = queryString.parse(location.href);
-        console.log(location.hostname);
         return (
             <div>
                 <a href={`https://${location.hostname}/${parsedQuery.id}`}>Back to Contract </a>

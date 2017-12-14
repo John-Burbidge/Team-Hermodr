@@ -17,12 +17,22 @@ ul{
     background: #eee;
     float: left;
   }
+
+  .client-no-bubble {
+    background: inherit;
+    color: inherit;
+  }
   
   .rba{
     float: right;
     background: #0084ff;
     color: #fff;
  
+  }
+
+  .rba-no-bubble {
+    background: inherit;
+    color: inherit;
   }
   
   .client + .rba{
@@ -42,5 +52,8 @@ ul{
     cursor: pointer;
   }
 
+  .received-imgs {
+    width: 50vh;
+  }
 
 

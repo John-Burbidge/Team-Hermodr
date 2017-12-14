@@ -11,7 +11,7 @@ class SmsHistoryStore {
         for(const msg of incomingMsgs){
             console.log(msg, this.messages, 'd');
             if(!this.messages.some(x => x.id === msg.Id)){
-                const newMsg = new SmsHistory(msg.Id, msg.CreatedDate, msg.Message__c, msg.Is_From_Customer__c, msg.Name);
+                const newMsg = new SmsHistory(msg.Id, msg.CreatedDate, msg.Message__c, msg.Is_From_Customer__c, msg.Name, msg.MediaURL__c);
                 this.messages.push(newMsg);
             }
            

@@ -7,6 +7,7 @@ import chatHistoryStyle from '../Styles/ChatHistoryStyle.scss';
 var classNames = require('classnames');
 import balloon from '../../node_modules/balloon-css/src/balloon.scss';
 import moment from 'moment';
+import fontAwesome from '../../node_modules/font-awesome/css/font-awesome.css';
 
 
 @withRouter
@@ -49,8 +50,11 @@ export default class SmsHistory extends Component {
                         smsHistoryStore.sortedMessages.map((msg, i) => {
                            const msgStyling = classNames({
                                 'client': msg.fromClient,
+                                'client-no-bubble': msg.mediaUrl !== undefined && msg.mediaUrl.length > 0,
                                 'rba': !msg.fromClient,
-                                'message': true
+                                'rba-no-bubble': msg.mediaUrl !== undefined && msg.mediaUrl.length > 0,
+                                'message': true,
+
                             });
                             const direction = classNames({
                                 'right': msg.fromClient,
@@ -59,8 +63,8 @@ export default class SmsHistory extends Component {
                             });
                            const date = moment(msg.date).format('MMM Do YYYY, h:mm:ss a');
                            return <li key={"sms-msg-" + i} className={msgStyling} data-balloon-pos={direction} data-balloon={date}>
-                                     {msg.message}
-                                </li>    
+                                     { msg.mediaUrl !== undefined && msg.mediaUrl.length > 0 ? <a href={msg.mediaUrl} target="_blank"> <img className="received-imgs" src={msg.mediaUrl} /></a> : msg.message}
+                                  </li>    
                         })
                     }
           

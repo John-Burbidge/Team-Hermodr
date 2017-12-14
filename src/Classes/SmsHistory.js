@@ -7,14 +7,16 @@ class SmsHistory {
     @observable msg
     @observable name
     @observable fromClient
+    @observable mediaUrl
 
 
-    constructor(id = '', date = '', message = '', fromClient = false, name) {
+    constructor(id = '', date = '', message = '', fromClient = false, name, mediaUrl) {
         this.id = id;
         this.date = date;
         this.message = message;
         this.fromClient = fromClient;
         this.name = name;
+        this.mediaUrl = mediaUrl;
     }
 
 }
