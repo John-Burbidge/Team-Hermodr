@@ -26,8 +26,8 @@ export default class HomeComponent extends Component {
             <div className="chat-container">
                 <div className="header">
                     <a href={`https://${location.hostname}/${parsedQuery.id}`}>Back to Contract </a>
-                    <h3>Client Name: {parsedQuery.clientName}</h3>
-                    <h4>Account: {parsedQuery.accountId}</h4>
+                    <h3>Client Name: Darth Vader</h3>
+                    <h4>Account: 532177324</h4>
 
                 </div>
                 <div id="chat-messages" className="chat-messages">

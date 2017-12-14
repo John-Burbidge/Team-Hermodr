@@ -41,12 +41,12 @@ textarea {
   padding-right: 55px;
   font-weight: 400;
   font-size: 20px;
-  padding-top:  20px;
+  background: lightgray;
 }
 
 .header {
   grid-area: header;
-  background: red;
+  background: lightgrey;
   h3,h4{
     margin-left: 20px;    
   }
