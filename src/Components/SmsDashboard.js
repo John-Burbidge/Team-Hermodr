@@ -22,20 +22,17 @@ export default class HomeComponent extends Component {
         const parsedQuery = queryString.parse(location.href);
         const props = this.props;
         const smsHistoryStore = props.smsHistoryStore;
-        return (
+        return (		
             <div className="chat-container">
                 <div className="header">
-                    <a href={`https://${location.hostname}/${parsedQuery.id}`}>Back to Contract </a>
-                    <h3>Client Name: Darth Vader</h3>
-                    <h4>Account: 532177324</h4>
-
+                    <h3>Account Name: {parsedQuery.customer}</h3>
                 </div>
                 <div id="chat-messages" className="chat-messages">
                         <SmsHistory />
                      
                 </div>
                 <div className="chat-buttons">
-                    <textarea value={smsHistoryStore.newRecordValue}  onChange={(event) => smsHistoryStore.setChange(event) } />
+                    <textarea autofocus="true" value={smsHistoryStore.newRecordValue}  onChange={(event) => smsHistoryStore.setChange(event) } />
                     <i className="fa fa-paper-plane-o fa-2x" aria-hidden="true" onClick={() => smsHistoryStore.addNewComment() }></i>
                 </div>
 
