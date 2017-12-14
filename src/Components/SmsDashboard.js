@@ -4,7 +4,7 @@ import { observer, inject } from 'mobx-react';
 import DevTools from 'mobx-react-devtools';
 import { withRouter, Route } from 'react-router';
 import SmsHistory from '../Components/SmsHistory';
-
+const queryString = require('query-string');
 
 @withRouter
 @inject('routingStore')
@@ -14,9 +14,11 @@ export default class HomeComponent extends Component {
         super();
     }
     render() {
+        const parsedQuery = queryString.parse(location.href);
+        console.log(location.hostname);
         return (
             <div>
-                <a href="">Back to Contract </a>
+                <a href={`https://${location.hostname}/${parsedQuery.id}`}>Back to Contract </a>
                 <SmsHistory />
             </div>
         )
