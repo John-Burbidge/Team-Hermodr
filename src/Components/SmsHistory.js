@@ -25,9 +25,8 @@ export default class SmsHistory extends Component {
             const lastMsg = smsHistoryStore.sortedMessages[smsHistoryStore.sortedMessages.length -1];
             that.getMessages(lastMsg.name);
           
-        }, 3 * 1000 ); 
+        }, 5 * 1000 ); 
        
- 
   
      
     }
@@ -49,8 +48,7 @@ export default class SmsHistory extends Component {
         const smsHistoryStore = props.smsHistoryStore;
         return (
             <div>
-                <div>
-                    <ul>
+                    <ul id="ui-list">
                         {
                             smsHistoryStore.sortedMessages.map((msg, i) => {
                             const msgStyling = classNames({
@@ -75,10 +73,6 @@ export default class SmsHistory extends Component {
             
                         
                     </ul>
-                </div>
-                <div className="chat-box">
-                    <textarea />
-                </div>
             </div>
         )
     }

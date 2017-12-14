@@ -1,7 +1,56 @@
-html, body {
-  margin: 0;
-  padding: 0;
-  min-height: 200vh; /* use min-height 100 vh instead of height to allow extended height with large content */
+
+.chat-container{
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 0.05fr 0.95fr;
+  grid-template-areas: "header"
+                        "chat-messages"
+                       ;
+  height: 97vh;
+
+}
+
+.chat-messages{
+  grid-area: chat-messages;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.chat-buttons {
+  i{
+    display: inline;
+    position: fixed;
+    z-index: 99;
+    right: 50px;
+    bottom: 10px;
+    cursor: pointer;
+  }
+}
+
+textarea {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  width: 80%;
+  height: 50px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  padding-left: 55px;
+  padding-right: 55px;
+  font-weight: 400;
+  font-size: 20px;
+  padding-top:  20px;
+}
+
+.header {
+  grid-area: header;
+  background: red;
+  h3,h4{
+    margin-left: 20px;    
+  }
+
 }
 
 ul{
@@ -17,6 +66,7 @@ ul{
     border-radius: 30px;
     margin-bottom: 10px;
     font-family: Helvetica, Arial, sans-serif;
+    margin: 10px;
   }
   
   .client{
@@ -65,7 +115,7 @@ ul{
 
 
 
-  /* Style the Image Used to Trigger the Modal */
+
 #myImg {
   border-radius: 5px;
   cursor: pointer;
@@ -78,7 +128,7 @@ ul{
 .modal {
   display: block;
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 999; /* Sit on top */
   padding-top: 100px; /* Location of the box */
   left: 0;
   top: 0;
@@ -144,5 +194,3 @@ ul{
       width: 100%;
   }
 }
-
-

@@ -15,7 +15,7 @@ import stores from '../src/Stores/Stores';
 const history = syncHistoryWithStore(browserHistory, stores.routingStore);
 
 
-useStrict(true);
+
 
 ReactDOM.render(
     <Provider {... stores}>
