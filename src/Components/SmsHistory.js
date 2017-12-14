@@ -49,31 +49,36 @@ export default class SmsHistory extends Component {
         const smsHistoryStore = props.smsHistoryStore;
         return (
             <div>
-                <ul>
-                    {
-                        smsHistoryStore.sortedMessages.map((msg, i) => {
-                           const msgStyling = classNames({
-                                'client': msg.fromClient,
-                                'client-no-bubble': msg.mediaUrl !== undefined && msg.mediaUrl.length > 0,
-                                'rba': !msg.fromClient,
-                                'rba-no-bubble': msg.mediaUrl !== undefined && msg.mediaUrl.length > 0,
-                                'message': true,
+                <div>
+                    <ul>
+                        {
+                            smsHistoryStore.sortedMessages.map((msg, i) => {
+                            const msgStyling = classNames({
+                                    'client': msg.fromClient,
+                                    'client-no-bubble': msg.mediaUrl !== undefined && msg.mediaUrl.length > 0,
+                                    'rba': !msg.fromClient,
+                                    'rba-no-bubble': msg.mediaUrl !== undefined && msg.mediaUrl.length > 0,
+                                    'message': true,
 
-                            });
-                            const direction = classNames({
-                                'right': msg.fromClient,
-                                'left': !msg.fromClient,
-                               
-                            });
-                           const date = moment(msg.date).format('MMM Do YYYY, h:mm:ss a');
-                           return <li key={"sms-msg-" + i} className={msgStyling} data-balloon-pos={direction} data-balloon={date}>
-                                     { msg.mediaUrl !== undefined && msg.mediaUrl.length > 0 ? <img className="received-imgs" onClick={() => smsHistoryStore.onClickOfImgUrl(msg.mediaUrl)} src={msg.mediaUrl} /> : msg.message}
-                                  </li>    
-                        })
-                    }
-          
-                    
-                </ul>
+                                });
+                                const direction = classNames({
+                                    'right': msg.fromClient,
+                                    'left': !msg.fromClient,
+                                
+                                });
+                            const date = moment(msg.date).format('MMM Do YYYY, h:mm:ss a');
+                            return <li key={"sms-msg-" + i} className={msgStyling} data-balloon-pos={direction} data-balloon={date}>
+                                        { msg.mediaUrl !== undefined && msg.mediaUrl.length > 0 ? <img className="received-imgs" onClick={() => smsHistoryStore.onClickOfImgUrl(msg.mediaUrl)} src={msg.mediaUrl} /> : msg.message}
+                                    </li>    
+                            })
+                        }
+            
+                        
+                    </ul>
+                </div>
+                <div className="chat-box">
+                    <textarea />
+                </div>
             </div>
         )
     }

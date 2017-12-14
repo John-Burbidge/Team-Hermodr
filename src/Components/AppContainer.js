@@ -8,6 +8,17 @@ export default class AppContainer extends Component {
     constructor() {
         super();
     }
+    componentDidMount() {  
+        Visualforce.remoting.Manager.invokeAction(
+            'HackathonCtrl.sendMessages',
+            function (result, event) {
+               
+                console.log('result of sendMessages', result);
+            }
+        );
+    }
+
+   
     render() {
         return (
             <div>
