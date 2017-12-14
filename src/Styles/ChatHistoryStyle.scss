@@ -1,3 +1,8 @@
+body
+{
+	margin:0;
+}
+
 
 .chat-container{
   display: grid;
@@ -11,6 +16,9 @@
 }
 
 .chat-messages{
+  z-index: 100;
+  margin-top: -60px;
+  margin-bottom: 5px;
   grid-area: chat-messages;
   overflow-y: auto;
   width: 100%;
@@ -20,9 +28,9 @@
   i{
     display: inline;
     position: fixed;
-    z-index: 99;
+    z-index: 300;
     right: 50px;
-    bottom: 10px;
+    bottom: 22px;
     cursor: pointer;
   }
 }
@@ -32,21 +40,25 @@ textarea {
   bottom: 0px;
   left: 0px;
   right: 0px;
-  width: 80%;
+  width: 90%;
   height: 50px;
-  z-index: 99;
+  z-index: 300;
   border: none;
   outline: none;
-  padding-left: 55px;
-  padding-right: 55px;
+  padding-top: 25px;
+  padding-left: 25px;
+  padding-right: 105px;
   font-weight: 400;
   font-size: 20px;
   background: lightgray;
 }
 
 .header {
+  z-index: 200;
+  font-family: Helvetica, Arial, sans-serif;
   grid-area: header;
-  background: lightgrey;
+  background:#d3d3d3; 
+  background:rgba(211,211,211,0.90);
   h3,h4{
     margin-left: 20px;    
   }
