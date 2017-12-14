@@ -17,23 +17,26 @@ export default class SmsHistory extends Component {
         super();
     }
     componentDidMount() {  
-       this.getMessages();  
+       this.getMessages('SMS-00000000');  
        const that = this;
+       const smsHistoryStore = that.props.smsHistoryStore;
         setInterval(function(){ 
-            that.getMessages();
+            const lastMsg = smsHistoryStore.sortedMessages[smsHistoryStore.sortedMessages.length -1];
+            that.getMessages(lastMsg.name);
 
-        }, 1 * 1000 ); 
+        }, 3 * 1000 ); 
      
     }
-    getMessages(){
+    getMessages(name){
         const props = this.props;
         const smsHistoryStore = props.smsHistoryStore;
         Visualforce.remoting.Manager.invokeAction(
-            'HackathonCtrl.getMsgs',
+            'HackathonCtrl.getMsgs', name,
             function (result, event) {
                 smsHistoryStore.createMessages(result);
             }
         );
+        
     }
 
     render() {
